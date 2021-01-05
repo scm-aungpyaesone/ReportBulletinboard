@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace ReportBulletinboard
 {

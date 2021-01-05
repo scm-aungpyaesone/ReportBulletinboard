@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace ReportBulletinboard
 {
