@@ -2,6 +2,7 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Oracle.DataAccess.Client;
+using AdvanceSoftware.ExcelCreator;
 
 namespace ReportBulletinboard
 {
@@ -61,11 +62,38 @@ namespace ReportBulletinboard
                         }
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        protected void BtnDownload_Click(object sender, System.EventArgs e)
+        {
+            var filePath = Server.MapPath("/Excel/");
+            string fileNameExcel = "Postlist(" + DateTime.Now.ToString("yyyy年MM月dd日_作成") + ").xlsx";
+
+            System.ComponentModel.IContainer components = new System.ComponentModel.Container();
+            Creator creator1 = new Creator(components);
+            try
+            {
+                creator1.CreateBook(filePath + fileNameExcel, 3, xlsxVersion.ver2016);
+                creator1.Cell("A1").Value = "Post Title";
+                creator1.Cell("B1").Value = "Post Description";
+                creator1.Cell("C1").Value = "Posted User";
+                creator1.Cell("D1").Value = "Posted At";
+                creator1.CloseBook(true);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("Content-Disposition",
+               string.Format("attachment; filename={0}", fileNameExcel));
+            Response.TransmitFile(filePath + fileNameExcel);
+            Response.End();
         }
     }
 }

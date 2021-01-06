@@ -8,6 +8,11 @@
     <div>
     <a href="/Post/Create.aspx">Create</a>
     </div>
+    <form id="PostDownloadForm" runat="server" autocomplete="off">
+    <asp:button id="BtnDownload" 
+              runat="server" Text="Download" Width="70px"
+              Height="24px" onclick="BtnDownload_Click"></asp:button>
+    </form>
     <asp:Table ID="POST_TABLE"
         GridLines="Both"
         HorizontalAlign="Center"

@@ -43,6 +43,22 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelCreator.CellDesigner.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c7a69a9a87c82556, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=e70d0f98050da475, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Document.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=40e5e8c862e0994c, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Html.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=494ce5e0c7a6a80c, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Pdf.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=e4b6c7625c98a906, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=ef668955e9772a61, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xls.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=53fa96998d653c73, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xls.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=7d03361a5824228f, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xls.Document.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=8d02e753bc35359a, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xls.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=d6c580e72ba6dcc4, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xlsx.CreatorExpress.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=9b83eaf7c36ffa11, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xlsx.Document.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=822008ace4daa9c9, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -100,7 +116,9 @@
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Excel\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
