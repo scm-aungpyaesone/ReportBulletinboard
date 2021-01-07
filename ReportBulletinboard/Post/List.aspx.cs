@@ -76,13 +76,36 @@ namespace ReportBulletinboard
 
             System.ComponentModel.IContainer components = new System.ComponentModel.Container();
             Creator creator1 = new Creator(components);
+
+            string queryString = "SELECT * FROM POST";
+            OracleConnection connection = DBTranManager.GetDBConnection();
+            OracleCommand cmd = new OracleCommand(queryString);
+            cmd.Connection = connection;
+            connection.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+
             try
             {
                 creator1.CreateBook(filePath + fileNameExcel, 3, xlsxVersion.ver2016);
                 creator1.Cell("A1").Value = "Post Title";
                 creator1.Cell("B1").Value = "Post Description";
-                creator1.Cell("C1").Value = "Posted User";
-                creator1.Cell("D1").Value = "Posted At";
+                creator1.Cell("C1").Value = "Status";
+
+                int i = 1;
+                while (reader.Read())
+                {
+                    creator1.Cell("A" + ( i + 1)).Value = reader.GetString(1);
+                    creator1.Cell("B" + (i + 1)).Value = reader.GetString(2);
+                    if (reader.GetInt32(3) == 1)
+                    {
+                        creator1.Cell("C" + (i + 1)).Value = "Active";
+                    }
+                    else
+                    {
+                        creator1.Cell("C" + (i + 1)).Value = "Inactive";
+                    }
+                    i++;
+                }
                 creator1.CloseBook(true);
             }
             catch (Exception ex)
